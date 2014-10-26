@@ -30,8 +30,8 @@ cd examples
 ```
 
 Then edit the generated Dockerfile and change the CMD directive to 
-'CMD ["/usr/bin/mongod", "--config", "/etc/mongodb.conf"]', then run
-docker build -t micro_mongodb.
+```CMD ["/usr/bin/mongod", "--config", "/etc/mongodb.conf"]```, then run
+```docker build -t micro_mongodb```.
 
 The example mongodb image can be found here. 
 https://registry.hub.docker.com/u/microdocker/mongodb/
