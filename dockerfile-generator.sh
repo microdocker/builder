@@ -88,7 +88,11 @@ if [ -n "$DATA" ]; then
     for f in $(find .); do
       [ $f = "." ] && continue
       dstpath=$(echo $f|awk '{print substr($1, 2)}')
-      echo "ADD data$dstpath $dstpath" >> $DOCKERFILE
+      if [ -d $f ]; then
+        echo "RUN mkdir -p $f" >> $DOCKERFILE
+      else
+        echo "ADD data$dstpath ${dstpath}" >> $DOCKERFILE
+      fi
     done
   )
 fi
